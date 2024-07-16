@@ -2,21 +2,22 @@ import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import Input from "./Input.jsx";
 
-const educationFields = ["Institution", "Start date", "End date", "Location", "Degree", "GPA", "Relevant Coursework", "Awards/Honors"]
+const educationFields = ["Institution", "Degree", "Location", "Start date", "End date", "GPA", "Relevant Coursework", "Awards/Honors"]
 
-function Education({ sections, setEdSections, handleEducationChange }) {
+function Education({ edSections, setEdSections, handleEducationChange }) {
     const addSection = () => {
         setEdSections([
-            ...sections,  // includes all the previous section plus the following
+            ...edSections,  // includes all the previous section plus the following
             {
                 id: uuidv4(),
                 educationItem: {
                     institution: "",
+                    degree: "",
+                    location: "",
                     startDate: "",
                     endDate: "",
-                    degree: "",
                     gpa: "",
-                    relevantCoursework: "",
+                    coursework: "",
                     awards: ""
                 }
             }
@@ -25,7 +26,7 @@ function Education({ sections, setEdSections, handleEducationChange }) {
 
     const deleteSection = (id) => {
         // set sections excluding the chosen section
-        setEdSections(sections.filter(section => section.id !== id));
+        setEdSections(edSections.filter(section => section.id !== id));
     }
 
     return (
@@ -34,7 +35,7 @@ function Education({ sections, setEdSections, handleEducationChange }) {
             <button className="add-section-btn" onClick={addSection}>Add</button>
 
             <div className="section-cont">
-                {sections.map((section, index) => (
+                {edSections.map((section, index) => (
                     <div key={section.id}>
                         <div className="section-header">
                             <h5>Section {index + 1}</h5>
@@ -60,7 +61,7 @@ function Education({ sections, setEdSections, handleEducationChange }) {
 }
 
 Education.propTypes = {
-    sections: PropTypes.array.isRequired,
+    edSections: PropTypes.array.isRequired,
     setEdSections: PropTypes.func.isRequired,
     handleEducationChange: PropTypes.func.isRequired,
 };

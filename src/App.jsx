@@ -5,6 +5,7 @@ import PersonalInfo from './components/PersonalInfo.jsx';
 import Education from './components/Education.jsx';
 import Experience from './components/Experience.jsx';
 import Skills from './components/Skills.jsx';
+import CV from './components/CV.jsx';
 
 function App() {
   // set states for PersonalInfo
@@ -55,10 +56,10 @@ function App() {
   const [skills, setSkills] = useState([]);
 
   // Skills fields change
-  function handleSkillsChange(id, value) {
+  function handleSkillsChange(id, field, value) {
     setSkills(skills.map(skill => {
       if (skill.id === id) {
-        return {...skill, skill:value}
+        return {...skill, skillItem: {...skill.skillItem, [field]: value}};
       } else {
         return skill;
       }
@@ -83,13 +84,13 @@ function App() {
           />
 
           <Education
-            sections={edSections}
+            edSections={edSections}
             setEdSections={setEdSections}
             handleEducationChange={handleEducationChange}
           />
 
           <Experience
-            sections={expSections}
+            expSections={expSections}
             setExpSections={setExpSections}
             handleExperienceChange={handleExperienceChange}
           />
@@ -102,7 +103,14 @@ function App() {
         </div>
 
         <div className='cv'>
-          {/* CV */}
+          <CV
+            name={name}
+            email={email}
+            phone={phone}
+            edSections={edSections}
+            expSections={expSections}
+            skills={skills}
+          />
         </div>
       </div>
     </>

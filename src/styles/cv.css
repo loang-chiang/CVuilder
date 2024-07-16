@@ -1,0 +1,64 @@
+/* GENERAL */
+.cv-cont {
+    border: 2px solid black;
+    height: 700px;
+    width: 500px;
+}
+
+.cv-cont > * {
+    font-size: 10px;
+}
+
+h2, h4 {
+    margin: 0px;
+}
+
+h2 {
+    font-size: 15px;
+}
+
+h4 {
+    font-size: 12px;
+}
+
+hr {
+    margin-top: 1px;
+}
+
+ul {
+    padding: 0 0 0 10px;
+    margin: 0;
+}
+
+.section-cont {
+    margin-bottom: 5px;
+}
+
+.part-cont {
+    padding: 0 20px 10px 20px;
+}
+
+/* PERSONAL INFO */
+.personal-info-cont {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.email-and-phone {
+    margin-top: 0;
+}
+
+/* EDUCATION */
+.section-main-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.location-and-dates {
+    text-align: right;
+}
+
+/* SKILLS */
+.skill-cont {
+    margin-bottom: 2px;
+}

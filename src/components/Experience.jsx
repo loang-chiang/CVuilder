@@ -2,20 +2,20 @@ import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import Input from "./Input.jsx";
 
-const experienceFields = ["Company", "Start date", "End date", "Location", "Role", "Duties (separated by commas)"]
+const experienceFields = ["Company", "Role", "Location", "Start date", "End date", "Duties (separated by commas)"]
 
-function Experience({ sections, setExpSections, handleExperienceChange }) {
+function Experience({ expSections, setExpSections, handleExperienceChange }) {
     const addSection = () => {
         setExpSections([
-            ...sections, // includes all the previous section plus the following
+            ...expSections, // includes all the previous section plus the following
             {
                 id: uuidv4(),
                 experienceItem: {
                     company: "",
+                    role: "",
+                    location: "",
                     startDate: "",
                     endDate: "",
-                    location: "",
-                    role: "",
                     duties: ""
                 }
             }
@@ -24,7 +24,7 @@ function Experience({ sections, setExpSections, handleExperienceChange }) {
 
     const deleteSection = (id) => {
         // set sections excluding the chosen section
-        setExpSections(sections.filter(section => section.id !== id));
+        setExpSections(expSections.filter(section => section.id !== id));
     }
 
     return (
@@ -33,7 +33,7 @@ function Experience({ sections, setExpSections, handleExperienceChange }) {
             <button className="add-section-btn" onClick={addSection}>Add</button>
 
             <div className="section-cont">
-                {sections.map((section, index) => (
+                {expSections.map((section, index) => (
                     <div key={section.id}>
                         <div className="section-header">
                             <h5>Section {index + 1}</h5>
@@ -42,13 +42,25 @@ function Experience({ sections, setExpSections, handleExperienceChange }) {
 
                         <div className="inputs-cont">
                             {Object.keys(section.experienceItem).map((field, idx) => (
-                                <div key={idx}>
-                                    <Input
-                                        value={section.experienceItem[field]}
-                                        handleChange={(e) => handleExperienceChange(section.id, field, e.target.value)}
-                                        placeholder={experienceFields[idx]}
-                                    />
-                                </div>
+                                // special case for skills
+                                idx === 5 ? (
+                                    <div key={idx}>
+                                        <Input
+                                            value={section.experienceItem[field]}
+                                            handleChange={(e) => handleExperienceChange(section.id, field, e.target.value)}
+                                            placeholder={experienceFields[idx]}
+                                            textarea={true}
+                                        />
+                                    </div>
+                                ) : (
+                                    <div key={idx}>
+                                        <Input
+                                            value={section.experienceItem[field]}
+                                            handleChange={(e) => handleExperienceChange(section.id, field, e.target.value)}
+                                            placeholder={experienceFields[idx]}
+                                        />
+                                    </div>
+                                )
                             ))}
                         </div>
                     </div>
@@ -59,7 +71,7 @@ function Experience({ sections, setExpSections, handleExperienceChange }) {
 }
 
 Experience.propTypes = {
-    sections: PropTypes.array.isRequired,
+    expSections: PropTypes.array.isRequired,
     setExpSections: PropTypes.func.isRequired,
     handleExperienceChange: PropTypes.func.isRequired,
 };
