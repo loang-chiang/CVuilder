@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import Input from "./Input.jsx";
 
-const experienceFields = ["Company", "Role", "Location", "Start date", "End date", "Duties (separated by commas)"]
+const experienceFields = ["Company", "Role", "Location", "Start date", "End date", "Duties (separated by newlines)"]
 
 function Experience({ expSections, setExpSections, handleExperienceChange }) {
     const addSection = () => {
@@ -28,11 +28,11 @@ function Experience({ expSections, setExpSections, handleExperienceChange }) {
     }
 
     return (
-        <div>
+        <div className="form-cont">
             <h3>Experience</h3>
             <button className="add-section-btn" onClick={addSection}>Add</button>
 
-            <div className="section-cont">
+            <div className="sections-cont">
                 {expSections.map((section, index) => (
                     <div key={section.id}>
                         <div className="section-header">
@@ -42,7 +42,6 @@ function Experience({ expSections, setExpSections, handleExperienceChange }) {
 
                         <div className="inputs-cont">
                             {Object.keys(section.experienceItem).map((field, idx) => (
-                                // special case for skills
                                 idx === 5 ? (
                                     <div key={idx}>
                                         <Input

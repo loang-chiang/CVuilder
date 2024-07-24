@@ -4,5 +4,29 @@
 
 .content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    padding: 0 15% 0 15%;
+}
+
+/* general */
+h3, h5 {
+    margin: 0px;
+}
+
+/* for the forms in general */
+.forms-cont {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.form-cont {
+    padding: 20px;
+}
+
+/* for the sections of each form */
+.sections-cont {
+    display: flex;
+    flex-wrap: wrap;
 }

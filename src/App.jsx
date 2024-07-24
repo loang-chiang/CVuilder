@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRef } from 'react';
 import './styles/main.css'
 // import CV from './components/CV.jsx';
 import PersonalInfo from './components/PersonalInfo.jsx';
@@ -6,8 +7,11 @@ import Education from './components/Education.jsx';
 import Experience from './components/Experience.jsx';
 import Skills from './components/Skills.jsx';
 import CV from './components/CV.jsx';
+import Screenshot from './components/Screenshot.jsx';
 
 function App() {
+  const cvRef = useRef(null);
+
   // set states for PersonalInfo
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -73,7 +77,7 @@ function App() {
       </div>
 
       <div className='content'>
-        <div className='add-info'>
+        <div className='forms-cont'>
           <PersonalInfo
             name={name}
             handleNameChange={handleNameChange}
@@ -110,6 +114,12 @@ function App() {
             edSections={edSections}
             expSections={expSections}
             skills={skills}
+            ref={cvRef}
+          />
+
+          <Screenshot
+            captureRef={cvRef} 
+            name={name}
           />
         </div>
       </div>

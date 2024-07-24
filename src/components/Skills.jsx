@@ -22,11 +22,11 @@ function Skills({ skills, setSkills, handleSkillsChange }) {
     }
 
     return(
-        <div className="skills-container">
+        <div className="form-cont">
             <h3>Skills</h3>
             <button className="add-section-btn" onClick={addSkill}>Add</button>
 
-            <div className="section-cont">
+            <div className="sections-cont">
                 {skills.map((skill, index) => (
                     <div key={skill.id}>
                         <div className="section-header">

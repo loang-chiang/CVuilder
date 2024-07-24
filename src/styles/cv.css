@@ -1,12 +1,12 @@
 /* GENERAL */
 .cv-cont {
     border: 2px solid black;
-    height: 700px;
+    height: 705px;
     width: 500px;
 }
 
 .cv-cont > * {
-    font-size: 10px;
+    font-size: 11px;
 }
 
 h2, h4 {
@@ -14,16 +14,14 @@ h2, h4 {
 }
 
 h2 {
-    font-size: 15px;
-}
-
-h4 {
-    font-size: 12px;
+    font-size: 18px;
 }
 
 hr {
+    border: 0;
+    border-top: 1px solid black;
     margin-top: 1px;
-}
+  }
 
 ul {
     padding: 0 0 0 10px;
@@ -61,4 +59,14 @@ ul {
 /* SKILLS */
 .skill-cont {
     margin-bottom: 2px;
+}
+
+/* FOR THE CV CANVAS */
+canvas {
+    /* hides the canvas */
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+
+    border: none !important;
 }

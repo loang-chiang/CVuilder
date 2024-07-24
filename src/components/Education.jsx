@@ -30,11 +30,11 @@ function Education({ edSections, setEdSections, handleEducationChange }) {
     }
 
     return (
-        <div>
+        <div className="form-cont">
             <h3>Education</h3>
             <button className="add-section-btn" onClick={addSection}>Add</button>
 
-            <div className="section-cont">
+            <div className="sections-cont">
                 {edSections.map((section, index) => (
                     <div key={section.id}>
                         <div className="section-header">
