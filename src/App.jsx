@@ -106,16 +106,18 @@ function App() {
           />
         </div>
 
-        <div className='cv'>
-          <CV
-            name={name}
-            email={email}
-            phone={phone}
-            edSections={edSections}
-            expSections={expSections}
-            skills={skills}
-            ref={cvRef}
-          />
+        <div className='cv-and-download'>
+          <div className='cv'>
+            <CV
+              name={name}
+              email={email}
+              phone={phone}
+              edSections={edSections}
+              expSections={expSections}
+              skills={skills}
+              ref={cvRef}
+            />
+          </div>
 
           <Screenshot
             captureRef={cvRef} 

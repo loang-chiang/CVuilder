@@ -23,15 +23,17 @@ function Skills({ skills, setSkills, handleSkillsChange }) {
 
     return(
         <div className="form-cont">
-            <h3>Skills</h3>
-            <button className="add-section-btn" onClick={addSkill}>Add</button>
+            <div className="name-and-section">
+                <h3>Skills</h3>
+                <button className="add-section-btn" onClick={addSkill}>Add</button>
+            </div>
 
             <div className="sections-cont">
                 {skills.map((skill, index) => (
-                    <div key={skill.id}>
+                    <div key={skill.id} className="section-cont skills-section-cont">
                         <div className="section-header">
-                            <h5>Section {index + 1}</h5>
-                            <button className="delete-section-btn" onClick={() => deleteSkill(skill.id)}>Delete</button>
+                            <h4 className="skills-section-title">Section {index + 1}</h4>
+                            <button className="delete-section-btn skill-delete-section-btn" onClick={() => deleteSkill(skill.id)}>Delete</button>
                         </div>
 
                         <div className="inputs-cont">
@@ -42,6 +44,7 @@ function Skills({ skills, setSkills, handleSkillsChange }) {
                                             value={skill.skillItem[field]}
                                             handleChange={(e) => handleSkillsChange(skill.id, field, e.target.value)}
                                             placeholder={skillFields[idx]}
+                                            nameClass={"skills-input"}
                                         />
                                     </div>
                                 ) : (
@@ -51,6 +54,7 @@ function Skills({ skills, setSkills, handleSkillsChange }) {
                                             handleChange={(e) => handleSkillsChange(skill.id, field, e.target.value)}
                                             placeholder={skillFields[idx]}
                                             textarea={true}
+                                            nameClass={"skills-input"}
                                         />
                                     </div>
                                 )

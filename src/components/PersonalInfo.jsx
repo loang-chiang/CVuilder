@@ -3,7 +3,7 @@ import Input from "./Input.jsx";
 
 function PersonalInfo({ name, handleNameChange, email, handleEmailChange, phone, handlePhoneChange }) {
     return (
-        <div className="form-cont">
+        <div className="form-cont" id="personal-form-cont">
             <h3>Personal Information</h3>
 
             <div className="inputs-cont">
@@ -11,18 +11,21 @@ function PersonalInfo({ name, handleNameChange, email, handleEmailChange, phone,
                     value={name}
                     handleChange={handleNameChange}
                     placeholder={"Name"}
+                    nameClass={"personal-info-input"}
                 />
                 
                 <Input
                     value={email}
                     handleChange={handleEmailChange}
                     placeholder={"Email"}
+                    nameClass={"personal-info-input"}
                 />
 
                 <Input
                     value={phone}
                     handleChange={handlePhoneChange}
                     placeholder={"Phone"}
+                    nameClass={"personal-info-input"}
                 />
             </div>
         </div>

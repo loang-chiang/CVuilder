@@ -31,15 +31,17 @@ function Education({ edSections, setEdSections, handleEducationChange }) {
 
     return (
         <div className="form-cont">
-            <h3>Education</h3>
-            <button className="add-section-btn" onClick={addSection}>Add</button>
+            <div className="name-and-section">
+                <h3>Education</h3>
+                <button className="add-section-btn" onClick={addSection}>Add</button>
+            </div>
 
             <div className="sections-cont">
                 {edSections.map((section, index) => (
-                    <div key={section.id}>
+                    <div key={section.id} className="section-cont ed-section-cont">
                         <div className="section-header">
-                            <h5>Section {index + 1}</h5>
-                            <button className="delete-section-btn" onClick={() => deleteSection(section.id)}>Delete</button>
+                            <h4 className="ed-section-title">Section {index + 1}</h4>
+                            <button className="delete-section-btn ed-delete-section-btn" onClick={() => deleteSection(section.id)}>Delete</button>
                         </div>
 
                         <div className="inputs-cont">
@@ -49,6 +51,7 @@ function Education({ edSections, setEdSections, handleEducationChange }) {
                                         value={section.educationItem[field]}
                                         handleChange={(e) => handleEducationChange(section.id, field, e.target.value)}
                                         placeholder={educationFields[idx]}
+                                        nameClass={"education-input"}
                                     />
                                 </div>
                             ))}

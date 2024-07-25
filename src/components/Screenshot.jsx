@@ -7,6 +7,8 @@ const Screenshot = ({ captureRef, name }) => {
       if (captureRef.current) {
         html2canvas(captureRef.current)
           .then((canvas) => {
+            canvas.style.border = 'none';
+
             // appends the canvas to the body or another element
             document.body.appendChild(canvas);
   
@@ -26,7 +28,7 @@ const Screenshot = ({ captureRef, name }) => {
     };
   
     return (
-      <button onClick={captureScreenshot}>Save CV</button>
+      <button onClick={captureScreenshot} className="add-section-btn">Download CV</button>
     );
 };
 

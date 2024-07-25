@@ -29,15 +29,17 @@ function Experience({ expSections, setExpSections, handleExperienceChange }) {
 
     return (
         <div className="form-cont">
-            <h3>Experience</h3>
-            <button className="add-section-btn" onClick={addSection}>Add</button>
+            <div className="name-and-section">
+                <h3>Experience</h3>
+                <button className="add-section-btn" onClick={addSection}>Add</button>
+            </div>
 
             <div className="sections-cont">
                 {expSections.map((section, index) => (
-                    <div key={section.id}>
+                    <div key={section.id} className="section-cont exp-section-cont">
                         <div className="section-header">
-                            <h5>Section {index + 1}</h5>
-                            <button className="delete-section-btn" onClick={() => deleteSection(section.id)}>Delete</button>
+                            <h4 className="exp-section-title">Section {index + 1}</h4>
+                            <button className="delete-section-btn exp-delete-section-btn" onClick={() => deleteSection(section.id)}>Delete</button>
                         </div>
 
                         <div className="inputs-cont">
@@ -49,6 +51,7 @@ function Experience({ expSections, setExpSections, handleExperienceChange }) {
                                             handleChange={(e) => handleExperienceChange(section.id, field, e.target.value)}
                                             placeholder={experienceFields[idx]}
                                             textarea={true}
+                                            nameClass={"experience-input"}
                                         />
                                     </div>
                                 ) : (
@@ -57,6 +60,7 @@ function Experience({ expSections, setExpSections, handleExperienceChange }) {
                                             value={section.experienceItem[field]}
                                             handleChange={(e) => handleExperienceChange(section.id, field, e.target.value)}
                                             placeholder={experienceFields[idx]}
+                                            nameClass={"experience-input"}
                                         />
                                     </div>
                                 )

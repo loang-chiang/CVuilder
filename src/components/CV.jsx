@@ -19,7 +19,7 @@ const CV = forwardRef(({ name, email, phone, edSections, expSections, skills }, 
                 const edItem = edObject.educationItem;
 
                 return (
-                    <div className="section-cont" key={edObject.id}>
+                    <div className="cv-section-cont" key={edObject.id}>
                         <div className="section-main-info">
                             <div className="institution-and-degree">
                                 <b>{edItem.institution}</b>, <i>{edItem.degree}</i>
@@ -46,7 +46,7 @@ const CV = forwardRef(({ name, email, phone, edSections, expSections, skills }, 
                 const duties = expItem.duties.split("\n");
                 
                 return (
-                    <div className="section-cont" key={expObject.id}>
+                    <div className="cv-section-cont" key={expObject.id}>
                         <div className="section-main-info">
                             <div className="company-and-role">
                                 <b>{expItem.company}</b>, <i>{expItem.role}</i>

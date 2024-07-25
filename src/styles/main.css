@@ -1,32 +1,172 @@
+/* general styling */
+h3, h4, h5 {
+    margin: 0px;
+}
+
+body {
+    background-color: #f4ebde;
+}
+
+
+/* MAIN */
 .title {
     text-align: center;
+    color: #3d405b;
 }
 
 .content {
     display: flex;
     justify-content: space-evenly;
-    padding: 0 15% 0 15%;
+    padding: 0 17.2% 0 17.2%;
 }
 
-/* general */
-h3, h5 {
-    margin: 0px;
-}
-
-/* for the forms in general */
+/* FORMS IN GENERAL */
 .forms-cont {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
+    margin: 0px 70px 40px 0px;
+}
+
+.forms-cont * {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .form-cont {
-    padding: 20px;
+    margin-bottom: 40px;
+    border: 2px solid #3d405b;
+    padding: 10px 0px 10px 10px; /* eliminates right padding bc of section margin */
+    border-radius: 12px;
 }
 
-/* for the sections of each form */
+#personal-form-cont {
+    padding-right: 10px; /* special for personal info bc it has no sections */
+}
+
+.name-and-section {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+h3 {
+    margin-bottom: 5px;
+    color: #3d405b;
+}
+
+
+/* SECTIONS OF EACH FORM */
 .sections-cont {
     display: flex;
     flex-wrap: wrap;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-cont {
+    padding: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 10px 0 0;
+}
+
+.ed-section-cont {
+    border: 2px solid #de5833;
+}
+
+.exp-section-cont {
+    border: 2px solid #699680;
+}
+
+.skills-section-cont {
+    border: 2px solid #9e5a93;
+}
+
+.ed-section-title {
+    color: #de5833;
+}
+
+.exp-section-title {
+    color: #699680;
+}
+
+.skills-section-title {
+    color: #9e5a93;
+}
+
+
+/* INPUTS AND BUTTONS */
+input, textarea {
+    border-radius: 5px;
+    margin-top: 3px;
+    padding: 3px;
+    background-color: #f4ebde;
+}
+
+textarea {
+    width: 320px;
+    height: 100px;
+}
+
+.education-input {
+    border: 2px solid #de5833;
+    color: #de5833;
+}
+
+.education-input::placeholder {
+    color: #c99a7d;
+}
+
+.experience-input {
+    border: 2px solid #699680;
+    color: #699680;
+}
+
+.experience-input::placeholder {
+    color: #a0b3a5;
+}
+
+.skills-input {
+    border: 2px solid #9e5a93;
+    color: #9e5a93;
+}
+
+.personal-info-input {
+    border: 2px solid #3d405b;
+    color: #3d405b;
+}
+
+.skills-input::placeholder {
+    color: #b79fb1;
+}
+
+.add-section-btn {
+    border-radius: 10px;
+    background-color: #3d405b;
+    color: #f4ebde;
+    font-family: 'Times New Roman', Times, serif; /* repeated bc of the Download CV button */
+}
+
+.delete-section-btn {
+    border-radius: 5px;
+    color: #f4ebde;
+}
+
+.ed-delete-section-btn {
+    background-color: #de5833;
+    border: 2px solid #de5833;
+}
+
+.exp-delete-section-btn {
+    background-color: #699680;
+    border: 2px solid #699680;
+}
+
+.skill-delete-section-btn {
+    background-color: #9e5a93;
+    border: 2px solid #9e5a93;
 }
