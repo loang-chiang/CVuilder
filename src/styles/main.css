@@ -98,8 +98,14 @@ h3 {
     color: #9e5a93;
 }
 
+.extra-info-cont {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
 
-/* INPUTS AND BUTTONS */
+
+/* INPUTS */
 input, textarea {
     border-radius: 5px;
     margin-top: 3px;
@@ -144,9 +150,16 @@ textarea {
     color: #b79fb1;
 }
 
+#personal-info-inputs {
+    margin-bottom: 10px;
+}
+
+
+/* BUTTONS */
 .add-section-btn {
     border-radius: 10px;
     background-color: #3d405b;
+    border: 1px solid #3d405b;
     color: #f4ebde;
     font-family: 'Times New Roman', Times, serif; /* repeated bc of the Download CV button */
 }
@@ -170,3 +183,12 @@ textarea {
     background-color: #9e5a93;
     border: 2px solid #9e5a93;
 }
+
+#delete-extra-info-btn {
+    height: 22px;
+    width: 22px;
+    border-radius: 20px;
+    margin-top: 3px;
+    margin-left: 3px;
+    padding-bottom: 10px;
+} 

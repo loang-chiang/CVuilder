@@ -16,6 +16,7 @@ function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [extraInfo, setExtraInfo] = useState([]);
 
   // PersonalInfo fields change
   function handleNameChange(e) {
@@ -26,6 +27,15 @@ function App() {
   }
   function handlePhoneChange(e) {
     setPhone(e.target.value);
+  }
+  function handleExtraInfoChange(id, value) {
+    setExtraInfo(extraInfo.map(info => {
+      if (info.id == id) {
+        return {...info, infoItem: value};
+      } else {
+        return info;
+      }
+    }))
   }
 
   // set state for Education
@@ -85,6 +95,9 @@ function App() {
             handleEmailChange={handleEmailChange}
             phone={phone}
             handlePhoneChange={handlePhoneChange}
+            extraInfo={extraInfo}
+            setExtraInfo = {setExtraInfo}
+            handleExtraInfoChange={handleExtraInfoChange}
           />
 
           <Education
@@ -115,6 +128,7 @@ function App() {
               edSections={edSections}
               expSections={expSections}
               skills={skills}
+              extraInfo={extraInfo}
               ref={cvRef}
             />
           </div>

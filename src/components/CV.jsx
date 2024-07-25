@@ -2,12 +2,19 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 import '../styles/cv.css'
 
-const CV = forwardRef(({ name, email, phone, edSections, expSections, skills }, ref) => (
+const CV = forwardRef(({ name, email, phone, edSections, expSections, skills, extraInfo}, ref) => (
     <div ref={ref} className="cv-cont">
         <div className="personal-info-cont">
             <h2 className="name">{name}</h2>
             <p className="email-and-phone">
                 {email} · {phone}
+                {extraInfo.map((info, index) => {
+                    const infoItem = info.infoItem;
+                    
+                    return (
+                    <span key={index} className="extra-info"> · {infoItem}</span>
+                    )
+                })}
             </p>
         </div>
 
@@ -93,7 +100,8 @@ CV.propTypes = {
     phone: PropTypes.string.isRequired,
     edSections: PropTypes.array.isRequired,
     expSections: PropTypes.array.isRequired,
-    skills: PropTypes.array.isRequired
+    skills: PropTypes.array.isRequired,
+    extraInfo: PropTypes.array,
 };
 
 export default CV;
