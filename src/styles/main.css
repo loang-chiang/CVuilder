@@ -26,7 +26,7 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
-    margin: 0px 70px 40px 0px;
+    margin: 0px 70px 0px 0px;
 }
 
 .forms-cont * {
